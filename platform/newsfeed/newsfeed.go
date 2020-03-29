@@ -1,9 +1,17 @@
 package newsfeed
 
+type Getter interface {
+	GetAll() []Item
+}
+
+type Adder interface {
+	Add(item Item)
+}
+
 //Item News feed item
 type Item struct {
 	Title string `json:"title"`
-	Post string `json:"post"`
+	Post  string `json:"post"`
 }
 
 //Repo Slice of News feed item

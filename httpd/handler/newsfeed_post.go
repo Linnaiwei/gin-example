@@ -8,13 +8,13 @@ import (
 
 type newsfeedPostRequest struct {
 	Title string `json:"title"`
-	Post string `json:"post"`
+	Post  string `json:"post"`
 }
 
-func NewsfeedPost (feed *newsfeed.Repo) gin.HandlerFunc{
-	return func (c *gin.Context) {
+func NewsfeedPost(feed newsfeed.Adder) gin.HandlerFunc {
+	return func(c *gin.Context) {
 		requestBody := newsfeedPostRequest{}
-		c.Bind(&requestBody)
+		_ = c.Bind(&requestBody)
 		feed.Add(newsfeed.Item(requestBody))
 		c.Status(http.StatusNoContent)
 	}

@@ -2,7 +2,7 @@ package newsfeed
 
 //Item News feed item
 type Item struct {
-	Title string `json:"tittle"`
+	Title string `json:"title"`
 	Post string `json:"post"`
 }
 
@@ -13,7 +13,9 @@ type Repo struct {
 
 //New Return a pointer of Repo
 func New() *Repo {
-	return &Repo{}
+	return &Repo{
+		Items: []Item{},
+	}
 }
 
 //Add Append a item to Repo

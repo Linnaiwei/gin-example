@@ -1,22 +1,27 @@
 package newsfeed
 
+//Item News feed item
 type Item struct {
 	Title string `json:"tittle"`
 	Post string `json:"post"`
 }
 
+//Repo Slice of News feed item
 type Repo struct {
-	Items []item
+	Items []Item
 }
 
+//New Return a pointer of Repo
 func New() *Repo {
 	return &Repo{}
 }
 
+//Add Append a item to Repo
 func (r *Repo) Add(item Item) {
 	r.Items = append(r.Items, item)
 }
 
+//GetAll Get all items from Repo
 func (r *Repo) GetAll() []Item {
 	return r.Items
 }

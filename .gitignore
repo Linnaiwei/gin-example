@@ -16,3 +16,6 @@
 
 # makefile
 makefile
+
+# idea config file
+.idea

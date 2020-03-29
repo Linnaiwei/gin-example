@@ -6,8 +6,10 @@ import (
 )
 
 //PingGet A handler for /ping
-func PingGet(c *gin.Context) {
-	c.JSON(http.StatusOK, map[string]string{
-		"message": "pong",
-	})
+func PingGet () gin.HandlerFunc{
+	return func (c *gin.Context) {
+		c.JSON(http.StatusOK, map[string]string{
+			"message": "pong",
+		})
+	}
 }
